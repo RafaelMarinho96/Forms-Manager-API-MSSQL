@@ -1,0 +1,23 @@
+{
+  "name": "API-MSSQL",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development nodemon ./source/bin/www",
+    "develop": "cross-env NODE_ENV=development nodemon ./source/bin/www"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "cross-env": "^5.2.0",
+    "custom-env": "^1.0.0",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "mssql": "^5.0.3",
+    "path": "^0.12.7"
+  }
+}
