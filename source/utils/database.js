@@ -1,27 +1,16 @@
-const mssql = require('mssql');
+var sql = require("mssql");
 
-const connect = {
-    user: process.env.user,
-    password: process.env.password,
-    server: process.env.server,
-    database: process.env.database,
-    port: process.env.port
-}
+var connect = function()
+{
+    var conn = new sql.ConnectionPool({
+        user: 'sa',
+        password: 'c45dm@5102',
+        server: 'localhost\\SQLEXPRESS',
+        database: 'SAAS',
+        port: 1433
+    });
+ 
+    return conn;
+};
 
-async function connectDB(){
-    try {
-        const connection = await new mssql.ConnectionPool(connect)
-
-        connection.connect(err => {
-            console.log('Error connect database -> ' + err)
-        })
-
-        return connection;
-    } catch (err) {
-        console.log('Error connect database -> ' + err)
-    }
-}
-
-module.exports = {
-    connectDB
-}
+module.exports = connect;
