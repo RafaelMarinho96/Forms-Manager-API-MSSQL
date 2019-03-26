@@ -4,6 +4,7 @@ const atividadeController = require('../controllers/atividade.controller');
 const router = express.Router();
 
 router.get('/', atividadeController.selectAll);
+router.post('/', atividadeController.insertNew);
 //router.post('/', atividadeController.selectAll);
 
 module.exports = app => app.use('/form', router);
