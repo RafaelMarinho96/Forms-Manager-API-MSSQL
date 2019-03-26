@@ -10,18 +10,20 @@ function selectAll(req, res){
 }
 
 function insertNew(req, res){
-    const {ID_ATIVIDADE, ID_CLIENTE, ID_USUARIO, DATA, CHAMADO, DESCRICAO, DESCRICAO_DETALHE, TIPO, ATUALIZACAO} = req.body;
-    
-    console.log("O valor é " + ID_ATIVIDADE);
+    const {ID_CLIENTE, ID_USUARIO, CHAMADO, DESCRICAO, DESCRICAO_DETALHE, TIPO, ATUALIZACAO} = req.body;
 
     var parameters = [
-        { name: 'ID_ATIVIDADE', sqltype: sql.Int, value: ID_ATIVIDADE},
-        { name: 'DESCRICAO', sqltype: sql.VarChar(200), value: "ID_ATIVIDADE"},
-        { name: 'DESCRICAO_DETALHE', sqltype: sql.VarChar(400), value: "ID_ATIVIDADE"}
-      ];
+        { name: 'ID_CLIENTE', sqltype: sql.Int, value: ID_CLIENTE},
+        { name: 'ID_USUARIO', sqltype: sql.Int, value: ID_USUARIO},
+        { name: 'DATA', sqltype: sql.VarChar, value: Date.now()},
+        { name: 'CHAMADO', sqltype: sql.VarChar(10), value: CHAMADO},
+        { name: 'DESCRICAO', sqltype: sql.VarChar(200), value: DESCRICAO},
+        { name: 'DESCRICAO_DETALHE', sqltype: sql.VarChar(400), value: DESCRICAO_DETALHE},
+        { name: 'TIPO', sqltype: sql.VarChar(20), value: TIPO},
+        { name: 'ATUALIZACAO', sqltype: sql.Int, value: ATUALIZACAO}
+    ];
   
-
-    crud.create(parameters,'insert into atividade (ID_ATIVIDADE, DESCRICAO, DESCRICAO_DETALHE) values (@ID_ATIVIDADE, @DESCRICAO, @DESCRICAO_DETALHE)').then((result) => {
+    crud.create(parameters,'insert into atividade (ID_CLIENTE, ID_USUARIO, CHAMADO, DESCRICAO, DESCRICAO_DETALHE, TIPO, ATUALIZACAO) values (@ID_CLIENTE, @ID_USUARIO, @CHAMADO, @DESCRICAO, @DESCRICAO_DETALHE, @TIPO, @ATUALIZACAO)').then((result) => {
         res.send(result)
     }).catch((err) => {
         res.send(err)

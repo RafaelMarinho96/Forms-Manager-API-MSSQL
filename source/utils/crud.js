@@ -12,12 +12,12 @@ function create(parameters, query){
 
             sqlRequest.query(query, function(err,result){
                 if(err){
-                    sql.close();
+                    conn.close();
                     console.log("error while querying database -> "+err);
                     rejected(err)
                 }
                 else{
-                    sql.close();
+                    conn.close();
                     resolve(result)
                 }
             });
