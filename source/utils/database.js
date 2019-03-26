@@ -4,7 +4,7 @@ var connect = function()
 {
     var conn = new sql.ConnectionPool({
         user: 'sa',
-        password: 'c45dm@5102',
+        password: '123456',
         server: 'localhost\\SQLEXPRESS',
         database: 'SAAS',
         port: 1433
